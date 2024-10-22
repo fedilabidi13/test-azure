@@ -16,10 +16,10 @@ steps:
 # Step 2: Prepare SonarQube for Code Quality Analysis
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'my-cnx'  # SonarQube service connection name
+    SonarQube: 'sonar-cnx'  # SonarQube service connection name
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'my-proj_my-proj_AZK0gykEPzjWCwB_zL9V'  # Replace with your SonarQube project key
+    cliProjectKey: 'my-proj_my-proj_AZK0i11torltbFN9BbB7'  # Replace with your SonarQube project key
     cliProjectVersion: '1.0'
     extraProperties: |
       sonar.java.binaries=target/classes
