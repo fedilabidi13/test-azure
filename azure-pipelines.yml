@@ -31,11 +31,20 @@ steps:
     mvn clean verify jacoco:report
   displayName: 'Build Java App with Maven and Generate JaCoCo Report'
 
-# Enable debug mode globally by setting the sonar.verbose property
-- task: SonarQubeAnalyze@5
+# # Enable debug mode globally by setting the sonar.verbose property
+# - task: SonarQubeAnalyze@5
+#   displayName: 'Run SonarQube Analysis with Debug'
+#   env:
+#     SONAR_VERBOSE: "true"
+- script: |
+    mvn clean verify sonar:sonar \
+      -Dsonar.projectKey=my-proj \
+      -Dsonar.projectName=my-proj \
+      -X
   displayName: 'Run SonarQube Analysis with Debug'
   env:
-    SONAR_VERBOSE: "true"
+    SONAR_HOST_URL: 'http://4.210.221.108' # Replace with your SonarQube server URL
+    SONAR_LOGIN: 'sqp_2f552ae2ecb1a0bacd662186ff2f10bf02beb00d' # Ensure this is set as a secure pipeline variable with your authentication token
 
 # Step 5: Publish JaCoCo Code Coverage Results
 - task: PublishCodeCoverageResults@2
