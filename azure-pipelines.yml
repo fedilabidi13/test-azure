@@ -33,10 +33,9 @@ steps:
 
 # Enable debug mode globally by setting the sonar.verbose property
 - task: SonarQubeAnalyze@5
-  env:
-    # Enable verbose output for debugging
-    SONAR_SCANNER_OPTS: "-X"
   displayName: 'Run SonarQube Analysis with Debug'
+  env:
+    SONAR_VERBOSE: "true"
 
 # Step 5: Publish JaCoCo Code Coverage Results
 - task: PublishCodeCoverageResults@2
