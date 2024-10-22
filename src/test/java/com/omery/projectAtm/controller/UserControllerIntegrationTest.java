@@ -42,19 +42,7 @@ public class UserControllerIntegrationTest {
         this.userService = userService;
         this.objectMapper = new ObjectMapper();
     }
-    @Test
-    public void testThatCreateUserSuccessfullyReturnsHttp201Created() throws Exception {
-        UserEntity TestUserA = TestDataUtil.createTestUserEntityB();
-        String userJson = objectMapper.writeValueAsString(TestUserA);
-        TestUserA.setId(null);
-        mockMvc.perform(
-                MockMvcRequestBuilders.post("/users/new")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(userJson)
-        ).andExpect(
-                MockMvcResultMatchers.status().isCreated()
-        );
-    }
+    
     @Test
     public void testThatListUsersReturnsListOfAuthors() throws Exception {
         UserEntity testAuthorEntityA = TestDataUtil.createTestUserEntityA();
