@@ -24,7 +24,6 @@ steps:
     extraProperties: |
       sonar.java.binaries=target/classes
       sonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-      sonar.projectBaseDir=$(System.DefaultWorkingDirectory)
   displayName: 'Prepare SonarQube for Code Quality Analysis'
 
 # Step 3: Build the Java project and generate JaCoCo code coverage report
