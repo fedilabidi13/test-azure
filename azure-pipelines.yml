@@ -1,5 +1,5 @@
 trigger:
-- main
+- master
 
 pool:
   name: Ubuntu24-VM-Pool
@@ -24,6 +24,7 @@ steps:
     extraProperties: |
       sonar.java.binaries=target/classes
       sonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+      sonar.projectBaseDir=$(Build.SourcesDirectory)  # Add this if needed
   displayName: 'Prepare SonarQube for Code Quality Analysis'
 
 # Step 3: Build the Java project and generate JaCoCo code coverage report
