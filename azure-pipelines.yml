@@ -31,9 +31,12 @@ steps:
     mvn clean verify jacoco:report
   displayName: 'Build Java App with Maven and Generate JaCoCo Report'
 
-# Step 4: Execute SonarQube analysis
+# Enable debug mode globally by setting the sonar.verbose property
 - task: SonarQubeAnalyze@5
-  displayName: 'Run SonarQube Analysis'
+  env:
+    # Enable verbose output for debugging
+    SONAR_SCANNER_OPTS: "-X"
+  displayName: 'Run SonarQube Analysis with Debug'
 
 # Step 5: Publish JaCoCo Code Coverage Results
 - task: PublishCodeCoverageResults@2
