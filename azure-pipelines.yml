@@ -19,7 +19,7 @@ steps:
     SonarQube: 'sonar-cnx'  # SonarQube service connection name
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'my-proj_my-proj_AZK0i11torltbFN9BbB7'  # Replace with your SonarQube project key
+    cliProjectKey: 'spring-app'  # Replace with your SonarQube project key
     cliProjectVersion: '1.0'
     extraProperties: |
       sonar.java.binaries=target/classes
